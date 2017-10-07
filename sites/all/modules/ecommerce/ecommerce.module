@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * @file
+ * Ecommerce modules for apis.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function ecommerce_menu() {
+  $menu_items = array();
+
+  $menu_items['api/products'] = array( //this creates a URL that will call product api"
+    'title' => 'Product Json Api', //page title
+    'description' => 'An api of product detail.',
+    'file' => 'product_api_inc.inc',
+    'page callback' => '_get_prd_api_json',
+    'access arguments' => array('access content'), // whatever see above
+  );
+  
+  return $menu_items;
+}

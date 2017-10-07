@@ -1,0 +1,3 @@
+core = "7.x"
+description = "An module to develop the e commerce apis and products."
+name = "E Commerce Module"
