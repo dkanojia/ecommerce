@@ -6,18 +6,180 @@
  */
 
 /**
- * Implements hook_menu().
+ * Implements hook_menu().e
  */
 function ecommerce_menu() {
   $menu_items = array();
 
-  $menu_items['api/products'] = array( //this creates a URL that will call product api"
-    'title' => 'Product Json Api', //page title
-    'description' => 'An api of product detail.',
-    'file' => 'product_api_inc.inc',
-    'page callback' => '_get_prd_api_json',
+  $menu_items['api/featuredpicks'] = array( //this creates a URL that will call product api"
+    'title' => 'Featured Picks Json Api', //page title
+    'description' => 'An api of getting featured picks.',
+    'file' => 'featured_picks_api_inc.inc',
+    'page callback' => '_get_featured_pic_api_json',
     'access arguments' => array('access content'), // whatever see above
   );
   
+  $menu_items['api/subscribe_us'] = array( //this creates a URL that will call product api"
+    'title' => 'Subscribe Json Api', //page title
+    'description' => 'An api of subscirbe us.',
+    'file' => 'subscribe_us_api_inc.inc',
+    'page callback' => '_store_subscribe_json',
+    'access arguments' => array('access content'), // whatever see above
+  );
+  
+  $menu_items['api/ladieswear'] = array( //this creates a URL that will call product api"
+    'title' => 'Womens Wear Json Api', //page title
+    'description' => 'An api of womens product detail.',
+    'file' => 'product_api_inc.inc',
+    'page callback' => '_get_womens_prd_api_json',
+    'access arguments' => array('access content'), // whatever see above
+  );
+
+  $menu_items['api/filterladieswear'] = array( //this creates a URL that will call product api"
+    'title' => 'Filter Womens Wear Json Api Using Category ID', //page title
+    'description' => 'An api of filtered womens product detail.',
+    'file' => 'filter_prd_api_inc.inc',
+    'page callback' => '_get_filter_womens_prd_api_json',
+    'access arguments' => array('access content'), // whatever see above
+  );
+  
+  $menu_items['api/menswear'] = array( //this creates a URL that will call product api"
+    'title' => 'Mens Wear Json Api', //page title
+    'description' => 'An api of mens related product detail.',
+    'file' => 'product_api_inc.inc',
+    'page callback' => '_get_mens_prd_api_json',
+    'access arguments' => array('access content'), // whatever see above
+  );
+
+  $menu_items['api/filtermenswear'] = array( //this creates a URL that will call product api"
+    'title' => 'Filter Mens Wear Json Api Using Category ID', //page title
+    'description' => 'An api of filtered mens product detail.',
+    'file' => 'filter_prd_api_inc.inc',
+    'page callback' => '_get_filter_mens_prd_api_json',
+    'access arguments' => array('access content'), // whatever see above
+  );
+
+  $menu_items['api/allcategory'] = array( //this creates a URL that will call product api"
+    'title' => 'All Category Json Api', //page title
+    'description' => 'An api of get category.',
+    'file' => 'category_api_inc.inc',
+    'page callback' => '_get_category_api_json',
+    'access arguments' => array('access content'), // whatever see above
+  );
+
+  $menu_items['api/filteredcategory'] = array( //this creates a URL that will call product api"
+    'title' => 'Filterd Category Json Api', //page title
+    'description' => 'An api of get category.',
+    'file' => 'category_api_inc.inc',
+    'page callback' => '_get_filtered_category_api_json',
+    'access arguments' => array('access content'), // whatever see above
+  );
+
+  $menu_items['api/product_inquiry_form'] = array( //this creates a URL that will call product api"
+    'title' => 'Product Enquiry Json Api', //page title
+    'description' => 'An api to store enquiry.',
+    'file' => 'inquiry_form_api.inc',
+    'page callback' => '_store_product_inquiry_json',
+    'access arguments' => array('access content'), // whatever see above
+  );
+
+  $menu_items['api/general_inquiry_form'] = array( //this creates a URL that will call product api"
+    'title' => 'General Enquiry Json Api', //page title
+    'description' => 'An api to store enquiries.',
+    'file' => 'inquiry_form_api.inc',
+    'page callback' => '_store_general_inquiry_json',
+    'access arguments' => array('access content'), // whatever see above
+  );
+
+  $menu_items['api/total_views'] = array( //this creates a URL that will call product api"
+    'title' => 'Item total views update api', //page title
+    'description' => 'An api to update views.',
+    'file' => 'product_api_inc.inc',
+    'page callback' => '_update_total_views',
+    'access arguments' => array('access content'), // whatever see above
+  );
+
+  $menu_items['api/designs_list'] = array( //this creates a URL that will call product api"
+    'title' => 'Category designs list Api', //page title
+    'description' => 'An api to list all designs.',
+    'file' => 'product_api_inc.inc',
+    'page callback' => '_get_prd_list_api_json',
+    'access arguments' => array('access content'), // whatever see above
+  );
+
+  $menu_items['admin/product_form'] = array( //this creates a URL for add product
+    'title' => 'Product Form', //page title
+    'description' => 'A form to add product.',
+    'file' => 'product_form_inc.inc',
+    'page callback' => '_get_rendering_element',
+    'access arguments' => array('administer my module'), // whatever see above
+  );
+
   return $menu_items;
+}
+
+
+//home product categories category featured picks enquiries product and general
+//only description
+
+// hook_form_BASE_FORM_ID_alter(&$form, &$form_state, $form_id)
+
+function ecommerce_form_product_node_form_alter(&$form, &$form_state, $form_id) {
+
+  /**
+  Adding Css
+    */
+  drupal_add_css(drupal_get_path('module','ecommerce') . '/css/' . 'product_form.css');
+
+  return $form;
+}
+
+function ecommerce_form_featured_picks_node_form_alter(&$form, &$form_state, $form_id) {
+
+  /**
+  Adding Css
+    */
+  drupal_add_css(drupal_get_path('module','ecommerce') . '/css/' . 'featured_form.css');
+
+  return $form;
+}
+
+function ecommerce_form_inquiry_form_node_form_alter(&$form, &$form_state, $form_id) {
+
+  /**
+  Adding Css
+    */
+  drupal_add_css(drupal_get_path('module','ecommerce') . '/css/' . 'inquiry_form.css');
+
+  return $form;
+}
+
+function ecommerce_form_subscibe_us_node_form_alter(&$form, &$form_state, $form_id) {
+
+  /**
+  Adding Css
+    */
+  drupal_add_css(drupal_get_path('module','ecommerce') . '/css/' . 'subscribe_form.css');
+
+  return $form;
+}
+
+function ecommerce_form_taxonomy_form_term_alter(&$form, &$form_state, $form_id) {
+
+  /**
+  Adding Css
+    */
+  drupal_add_css(drupal_get_path('module','ecommerce') . '/css/' . 'product_category_form.css');
+
+  return $form;
+}
+
+function ecommerce_form_alter(&$form, &$form_state, $form_id) {
+
+  if ($form_id == 'user_login_block' || $form_id == 'user_login') {
+    drupal_add_css(drupal_get_path('module','ecommerce') . '/css/' . 'user_form.css');
+
+  }
+
+  return $form;
 }
