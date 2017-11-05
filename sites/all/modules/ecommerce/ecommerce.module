@@ -140,7 +140,7 @@ function ecommerce_form_featured_picks_node_form_alter(&$form, &$form_state, $fo
   Adding Css
     */
   drupal_add_css(drupal_get_path('module','ecommerce') . '/css/' . 'featured_form.css');
-
+// $sdf = '<a class="btn btn-primary" href="'.drupal_get_path().'/node/add/product"> Hello </a>';
   return $form;
 }
 

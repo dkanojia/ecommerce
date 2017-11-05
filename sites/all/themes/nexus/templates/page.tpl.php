@@ -67,7 +67,7 @@
 <div id="page">
   <header id="masthead" class="site-header container" role="banner">
     <div class="row">
-      <div id="logo" class="site-branding col-sm-6">
+      <div id="logo" class="site-branding col-sm-5">
         <?php if ($logo): ?><div id="site-logo"><a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
           <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
         </a></div><?php endif; ?>
@@ -75,7 +75,7 @@
           <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>"><?php print $site_name; ?></a>
         </h1>
       </div>
-      <div class="col-sm-6 mainmenu">
+      <div class="col-sm-7 mainmenu">
         <div class="mobilenavi"></div>
         <nav id="navigation" role="navigation">
           <div id="main-menu">
