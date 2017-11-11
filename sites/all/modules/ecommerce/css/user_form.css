@@ -1,3 +1,8 @@
-div.item-list{
+/*div.item-list{
+	display: none;
+}*/
+
+/*For bootstrap*/
+ul{
 	display: none;
 }

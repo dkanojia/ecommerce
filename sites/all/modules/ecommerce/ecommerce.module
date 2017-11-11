@@ -130,7 +130,7 @@ function ecommerce_form_product_node_form_alter(&$form, &$form_state, $form_id) 
   Adding Css
     */
   drupal_add_css(drupal_get_path('module','ecommerce') . '/css/' . 'product_form.css');
-
+  $form['options']['promote']['#default_value'] = '0';
   return $form;
 }
 
