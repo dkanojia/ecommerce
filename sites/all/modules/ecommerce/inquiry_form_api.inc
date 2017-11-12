@@ -209,6 +209,42 @@ function store_general_inquiry_jsondata(){
       $json_output['code'] = 200;
       $json_output['data'] = $newNode->nid;
       $json_output['message'] = "Enquiry successfully added";
+
+      // Mail
+      $to = "anuj957139@gmail.com";
+      $subject = "HTML email";
+
+      $message = "
+      <html>
+      <head>
+      <title>HTML email</title>
+      </head>
+      <body>
+      <p>This email contains HTML Tags!</p>
+      <table>
+      <tr>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      </tr>
+      <tr>
+      <td>John</td>
+      <td>Doe</td>
+      </tr>
+      </table>
+      </body>
+      </html>
+      ";
+
+      // Always set content-type when sending HTML email
+      $headers = "MIME-Version: 1.0" . "\r\n";
+      $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+      // More headers
+      $headers .= 'From: <anuj957139@gmail.com>' . "\r\n";
+
+      mail($to,$subject,$message,$headers);
+
+
     }else{
       $json_output['status'] = "error";
       $json_output['code'] = 400;

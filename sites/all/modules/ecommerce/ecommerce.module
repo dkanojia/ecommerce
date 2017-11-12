@@ -183,3 +183,13 @@ function ecommerce_form_alter(&$form, &$form_state, $form_id) {
 
   return $form;
 }
+
+function ecommerce_form_user_profile_form_alter(&$form, &$form_state, $form_id) {
+
+  if ($form_id == 'user_profile_form') {
+    drupal_add_css(drupal_get_path('module','ecommerce') . '/css/' . 'user_edit_form.css');
+    $form['picture']['#title'] = 'Profile Picture';
+  }
+
+  return $form;
+}

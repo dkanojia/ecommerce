@@ -1,0 +1,20 @@
+/*div.item-list{
+	display: none;
+}*/
+
+/*For bootstrap*/
+ul{
+	display: none;
+}
+
+#edit-timezone{
+	display: none;
+}
+
+#edit-field-migrate-example-gender{
+	display: none;
+}
+
+.help-block a{
+	display: none;
+}
