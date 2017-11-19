@@ -76,7 +76,7 @@ function get_mens_prd_api_jsondata() {
   $query = db_select('node','n');
   
   $query->leftjoin('uc_products','uc_prd','uc_prd.nid=n.nid');
-  $query->leftjoin('field_data_field_short_description','sht_decr','sht_decr.entity_id=n.nid');
+  // $query->leftjoin('field_data_field_short_description','sht_decr','sht_decr.entity_id=n.nid');
   $query->leftjoin('field_data_body','decr','decr.entity_id=n.nid');
   
   $query->leftjoin('field_data_field_material_type','mat_type','mat_type.entity_id=n.nid');
@@ -95,7 +95,7 @@ function get_mens_prd_api_jsondata() {
   $query->leftjoin('taxonomy_term_data','parent_name','parent_name.tid=tax_hrchy.parent');
 
   $query->fields('n',array('nid','title')); 
-  $query->fields('sht_decr',array('field_short_description_value')); 
+  // $query->fields('sht_decr',array('field_short_description_value')); 
   $query->fields('decr',array('body_value')); 
   $query->fields('tax',array('tid','name')); 
   $query->fields('tax_ctlg',array('tid','name')); 
@@ -117,8 +117,8 @@ function get_mens_prd_api_jsondata() {
         'id' => $tag['nid'],
         'display_code' => $tag['model'],
         'name' => $tag['title'],
-        'short_description' => $tag['field_short_description_value'],
-        'long_description' => $tag['body_value'],
+        // 'short_description' => $tag['field_short_description_value'],
+        'description' => $tag['body_value'],
         'material_type_id' => $tag['tid'],
         'material_type' => $tag['name'],
         'cateory_id' => $tag['tax_ctlg_tid'],
@@ -189,7 +189,7 @@ function get_womens_prd_api_jsondata() {
   $query = db_select('node','n');
   
   $query->leftjoin('uc_products','uc_prd','uc_prd.nid=n.nid');
-  $query->leftjoin('field_data_field_short_description','sht_decr','sht_decr.entity_id=n.nid');
+  // $query->leftjoin('field_data_field_short_description','sht_decr','sht_decr.entity_id=n.nid');
   $query->leftjoin('field_data_body','decr','decr.entity_id=n.nid');
   
   $query->leftjoin('field_data_field_material_type','mat_type','mat_type.entity_id=n.nid');
@@ -208,7 +208,7 @@ function get_womens_prd_api_jsondata() {
   $query->leftjoin('taxonomy_term_data','parent_name','parent_name.tid=tax_hrchy.parent');
 
   $query->fields('n',array('nid','title')); 
-  $query->fields('sht_decr',array('field_short_description_value')); 
+  // $query->fields('sht_decr',array('field_short_description_value')); 
   $query->fields('decr',array('body_value')); 
   $query->fields('tax',array('tid','name')); 
   $query->fields('tax_ctlg',array('tid','name')); 
@@ -230,8 +230,8 @@ function get_womens_prd_api_jsondata() {
         'id' => $tag['nid'],
         'display_code' => $tag['model'],
         'name' => $tag['title'],
-        'short_description' => $tag['field_short_description_value'],
-        'long_description' => $tag['body_value'],
+        // 'short_description' => $tag['field_short_description_value'],
+        'description' => $tag['body_value'],
         'material_type_id' => $tag['tid'],
         'material_type' => $tag['name'],
         'cateory_id' => $tag['tax_ctlg_tid'],

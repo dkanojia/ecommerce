@@ -212,35 +212,143 @@ function store_general_inquiry_jsondata(){
 
       // Mail
       $to = "anuj957139@gmail.com";
-      $subject = "HTML email";
+      $subject = "Enquiry successfully received";
 
-      $message = "
+      $message = '
       <html>
-      <head>
-      <title>HTML email</title>
-      </head>
-      <body>
-      <p>This email contains HTML Tags!</p>
-      <table>
-      <tr>
-      <th>Firstname</th>
-      <th>Lastname</th>
-      </tr>
-      <tr>
-      <td>John</td>
-      <td>Doe</td>
-      </tr>
-      </table>
-      </body>
+          <head></head>
+          <body>
+              <style type="text/css"> * {
+                  font-size: 14px;
+                  font-family: sans-serif;
+                  line-height: 20px;
+              }
+              </style>>
+              <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                  <tbody>
+                      <tr>
+                          <td width="100%" align="center" valign="top" bgcolor="#eeeeee" height="20"></td>
+                      </tr>
+                      <tr>
+                          <td bgcolor="#eeeeee" align="center" style="padding:0px 15px 0px 15px;" class="yiv3733200406section-padding">
+                              <table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:600px;" class="yiv3733200406responsive-table">
+                                  <tbody>
+                                      <tr>
+                                          <td>
+                                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                  <tbody>
+                                                      <tr>
+                                                          <td align="center" style="padding:40px 40px 0px 40px;">
+                                                              <a rel="nofollow" target="_blank" href="http://www.digitaserve.com/abhishri_designs">
+                                                              <img src="https://www.google.co.in/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" width="70" border="0" style="vertical-align:middle;">
+                                                              </a>
+                                                          </td>
+                                                      </tr>
+                                                      <tr>
+                                                          <td align="center" style="font-size:18px;color:#0e0e0f;font-weight:700;font-family:Helvetica Neue;line-height:28px;vertical-align:top;text-align:center;padding:35px 40px 0px 40px;">
+                                                              <strong>You have received an Enquiry from '.$new_arr['person_name'].'</strong>
+                                                          </td>
+                                                      </tr>
+                                                      <tr>
+                                                          <td align="center" bgcolor="#ffffff" height="1" style="padding:40px 40px 5px;" valign="top" width="100%">
+                                                              <table cellpadding="0" cellspacing="0" width="100%">
+                                                                  <tbody>
+                                                                      <tr>
+                                                                          <td style="border-top:1px solid #e4e4e4;"> </td>
+                                                                      </tr>
+                                                                  </tbody>
+                                                              </table>
+                                                          </td>
+                                                      </tr>
+                                                      <tr style="text-align: justify;">
+                                                          <td class="yiv3733200406content" style="font:16px/22px; text-align:left;color:#555555;padding:40px 40px 0px 40px; width: 80%; display: block;">
+                                                              <div style="width: 80%; margin: 0 auto;">Hi,<br>'.$new_arr['person_name'].' left you an enquiry in regards to the general:</div>
+                                                              <table style="padding-bottom:30px;width:100%;">
+                                                                  <tbody>
+                                                                      <tr>
+                                                                          <td align="center" bgcolor="#ffffff" height="1" style="padding:20px 40px 5px;" valign="top" width="100%">
+                                                                              <table cellpadding="0" cellspacing="0" width="100%">
+                                                                                  <tbody>
+                                                                                      <tr>
+                                                                                          <td style="border-top:1px solid #e4e4e4;"> </td>
+                                                                                      </tr>
+                                                                                  </tbody>
+                                                                              </table>
+                                                                          </td>
+                                                                      </tr>
+                                                                      <tr>
+                                                                          <td class="yiv3733200406content" style="padding:20px 0px 0px 40px;">
+                                                                              Subject: General Enquiry
+
+                                                                          </td>
+                                                                      </tr>
+                                                                      <tr>
+                                                                          <td class="yiv3733200406content" style="text-align: justify; width: 80%; margin: 0 auto;     padding: 20px 0px 0px 0px;display: block;">
+                                                                              Hi, I wanted to knwo the best price for dress with product code AD4567890 whose online price is 5500 INR. Please let me know ASAP at my email address xyz@gmail.com.
+                                                                              '.$new_arr['description'].'
+                                                                          </td>
+                                                                      </tr>
+                                                                      <tr>
+                                                                          <td align="center" bgcolor="#ffffff" height="1" style="padding:20px 40px 5px;" valign="top" width="100%">
+                                                                              <table cellpadding="0" cellspacing="0" width="100%">
+                                                                                  <tbody>
+                                                                                      <tr>
+                                                                                          <td style="border-top:1px solid #e4e4e4;"> </td>
+                                                                                      </tr>
+                                                                                  </tbody>
+                                                                              </table>
+                                                                          </td>
+                                                                      </tr>
+                                                                  </tbody>
+                                                              </table>
+                                                              <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin:0px 0px 30px 0px;">
+                                                                  <tbody>
+                                                                      <tr>
+                                                                          <td class="yiv3733200406content" style="padding:20px 0px 40px 0px; text-align: center;">
+                                                                              His contact details are:<br> '.$new_arr['email_id'].'/'.$new_arr['contact_no'].' 
+
+                                                                          </td>
+                                                                      </tr>
+                                                                      <tr>
+                                                                          <td align="center" style="text-align:center;">
+                                                                              <a rel="nofollow" name="CTA" style="color:#ffffff;background-color:#01b22e;display:inline-block;font-family:Helvetica Neue;font-size:16px;line-height:30px;text-align:center;font-weight:bold;text-decoration:none;padding:5px 20px;border-radius:3px;text-transform:none;" target="_blank" href="#">Go To Panel</a>
+                                                                          </td>
+                                                                      </tr>
+                                                                  </tbody>
+                                                              </table>
+                                                          </td>
+                                                      </tr>
+                                                  </tbody>
+                                              </table>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td width="100%" align="center" valign="top" bgcolor="#ffffff" height="45"></td>
+                                      </tr>
+                                  </tbody>
+                              </table>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td bgcolor="#eeeeee" align="center" style="padding:20px 0px;">
+
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+              </td>
+              </tr>
+              </tbody></table>
+          </body>
       </html>
-      ";
+      ';
 
       // Always set content-type when sending HTML email
       $headers = "MIME-Version: 1.0" . "\r\n";
       $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
       // More headers
-      $headers .= 'From: <anuj957139@gmail.com>' . "\r\n";
+      $headers .= 'From: <hr@digitaserve.com>' . "\r\n";
 
       mail($to,$subject,$message,$headers);
 

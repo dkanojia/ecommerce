@@ -115,6 +115,15 @@ function ecommerce_menu() {
     'access arguments' => array('administer my module'), // whatever see above
   );
 
+  $menu_items['admin/user_pop_up_form/%ctools_js'] = array(
+    'title' => 'Pop Up Form', //page title
+    'file' => 'user_form.inc',
+    'page callback' => 'user_popup_form',
+    'page arguments' => array(1),
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
+
   return $menu_items;
 }
 
@@ -189,7 +198,17 @@ function ecommerce_form_user_profile_form_alter(&$form, &$form_state, $form_id) 
   if ($form_id == 'user_profile_form') {
     drupal_add_css(drupal_get_path('module','ecommerce') . '/css/' . 'user_edit_form.css');
     $form['picture']['#title'] = 'Profile Picture';
+    
+    global $base_url;
+
+    $form['actions']['cancel'] = array(
+      // '#type' => 'cancel',
+      '#markup' => l(t('Cancel'), $base_url),
+      '#prefix' => '<div class="btn btn-danger">',
+      '#suffix' => '</div>',
+    );
+
+    return $form;
   }
 
-  return $form;
 }

@@ -23,3 +23,32 @@ menu_execute_active_handler();
 // require('includes/password.inc');
 // echo user_hash_password('admin@123');
 // die;
+
+// define('DRUPAL_ROOT', getcwd());
+// require_once DRUPAL_ROOT . '/includes/bootstrap.inc';
+// drupal_bootstrap(DRUPAL_BOOTSTRAP_SESSION);
+// global $user;
+// // Create some data.
+// $data = array();
+// for ($x = 0; $x < 100; $x++) {
+//   $user->data[] = md5($x);
+// }
+// // Store in session.
+// $user->data = array();
+// // Commit the session.
+// drupal_session_commit();
+// // Regenerate the session.
+// drupal_session_regenerate();
+// // Clear session, wincache has a special 
+// // drupal_session_destroy implementation.
+// if (function_exists('drupal_session_destroy')) {
+//   drupal_session_destroy();
+// }
+// else {
+//   session_destroy();
+// }
+// // Now create and store a session without destroy
+// // so that they accumulate throughout the test.
+// $user->data = array();
+// // Commit the session.
+// drupal_session_commit();
